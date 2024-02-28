@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { body, validationResult } from 'express-validator';
 import { UserModel } from '../models/User.js';
+import jwt from 'jsonwebtoken';
 
 export const login = Router();
 
@@ -30,7 +31,7 @@ login.post(
 
       // match password
       const pass = await user.comparePassword(password);
-      
+
       const isPasswordValid = pass;
       if (!isPasswordValid) {
         return response.status(400).json({
@@ -38,8 +39,12 @@ login.post(
         });
       }
 
-      // @todo: generate a JWT token
-      const token = 'jwt-token';
+      const payload = {
+        username: user.username,
+        createdAt: user.createdAt,
+      };
+      const token = jwt.sign(payload, "12345SECRET:", { expiresIn: '20m' })
+      // '1m' = 1 minute, '1h' = 1 hour, '1d' = 1 day
 
       return response.status(201).json({ token, username: user.username });
     } catch (error) {
