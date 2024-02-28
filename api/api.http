@@ -1,0 +1,21 @@
+### POST login
+POST http://localhost:3000/api/v1/login
+Content-Type: application/json
+
+{
+    "username": "andresFELIPE",
+    "password": "pass1234"
+}
+
+### POST sign-up
+POST http://localhost:3000/api/v1/sign-up
+Content-Type: application/json
+
+{
+    "username": "andresFELIPE",
+    "password": "pass1234"
+}
+
+### GET profile
+GET http://localhost:3000/api/v1/profile
+

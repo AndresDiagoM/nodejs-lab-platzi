@@ -1,4 +1,4 @@
-import Mongoose from 'mongoose';
+import mongoose from 'mongoose';
 
 const url = process.env.DATABASE_URL;
 
@@ -7,10 +7,11 @@ if (!url) {
 }
 
 export const connect = async () => {
-  await Mongoose.connect(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  });
+  console.log('[db] Connecting to database', url);
 
-  console.log('[db] Connected');
+  mongoose
+	.connect(url)
+	.then(() => console.log("Connected to MongoDB, node-goat-tbbc!"))
+	.catch((err) => console.error("Could not connect to MongoDB", err));
+
 };

@@ -28,7 +28,10 @@ login.post(
         });
       }
 
-      const isPasswordValid = password === user.password;
+      // match password
+      const pass = await user.comparePassword(password);
+      
+      const isPasswordValid = pass;
       if (!isPasswordValid) {
         return response.status(400).json({
           error: 'username or password is incorrect',

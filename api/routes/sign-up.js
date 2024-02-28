@@ -4,8 +4,7 @@ import { UserModel } from '../models/User.js';
 
 export const signUp = Router();
 
-signUp.post(
-  '/',
+signUp.post('/',
   // Validación y sanitización de los datos de entrada
   body('username').not().isEmpty().trim(),
   check('username').custom(async (username) => {
@@ -28,7 +27,10 @@ signUp.post(
 
       const { username, password } = request.body;
 
-      const user = await UserModel.create({ username, password });
+      // encrypt password
+      const hashedPass = await UserModel.hashPassword(password);
+
+      const user = await UserModel.create({ username, password: hashedPass});
 
       return response
         .status(201)
