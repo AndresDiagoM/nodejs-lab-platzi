@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import { body, check, validationResult } from 'express-validator';
 import { UserModel } from '../../models/User.js';
-import jwt from 'jsonwebtoken';
 
 export const updateUser = Router();
 
@@ -20,14 +19,7 @@ updateUser.put('/',
         return response.status(400).json({ errors: errors.array() });
       }
 
-      const token = request.headers.authorization.split(' ')[1];
-      // verify if token is valid
-      const payload = jwt.verify(token, "12345SECRET:");
-      if(!payload) {
-        return response.status(401).json({
-          error: 'You are not authorized to update this profile',
-        });
-      }
+      const payload = request.payload;
 
       const { username} = request.body;
 

@@ -3,8 +3,8 @@ POST http://localhost:3000/api/v1/login
 Content-Type: application/json
 
 {
-    "username": "andresfelipematta",
-    "password": "pass12345"
+    "username": "andresFELIPE",
+    "password": "pass1234"
 }
 
 ### POST sign-up

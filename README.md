@@ -54,3 +54,11 @@ Ayuda a otros estudiantes con eso que acabas de descubrir que haría este curso 
 Happy hacking!
 
 <!-- para correr el api desde la raiz es npm start --workspace=api -->
+
+## 📝 Tests de la api
+
+Para correr los tests de la api, desde la raíz del proyecto, ejecuta:
+
+```sh
+npm test --workspace=api
+```
