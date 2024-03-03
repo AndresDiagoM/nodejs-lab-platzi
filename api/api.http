@@ -3,8 +3,8 @@ POST http://localhost:3000/api/v1/login
 Content-Type: application/json
 
 {
-    "username": "andresFELIPE",
-    "password": "pass1234"
+    "username": "andresfelipematta",
+    "password": "pass12345"
 }
 
 ### POST sign-up
@@ -17,5 +17,20 @@ Content-Type: application/json
 }
 
 ### GET profile
-GET http://localhost:3000/api/v1/profile
+GET http://localhost:3000/api/v1/profile/andresfelipe
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHJlc2ZlbGlwZSIsImNyZWF0ZWRBdCI6IjIwMjQtMDItMjhUMTg6MjI6MDMuNDM3WiIsImlhdCI6MTcwOTQzMTI0MCwiZXhwIjoxNzA5NDMyNDQwfQ.QyylxOaM9ASHl54qI8QsSMuEgNdE7KiHKMA8EUR8Hqw
 
+### PUT update
+PUT http://localhost:3000/api/v1/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHJlc2ZlbGlwZSIsImNyZWF0ZWRBdCI6IjIwMjQtMDItMjhUMTg6MjI6MDMuNDM3WiIsImlhdCI6MTcwOTQzMTI0MCwiZXhwIjoxNzA5NDMyNDQwfQ.QyylxOaM9ASHl54qI8QsSMuEgNdE7KiHKMA8EUR8Hqw
+Content-Type: application/json
+
+{
+    "username":"andresFELIPEmatta",
+    "password":"pass1234",
+    "newPassword":"pass12345"
+}
+
+### DELETE delete
+DELETE http://localhost:3000/api/v1/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFuZHJlc2ZlbGlwZW1hdHRhIiwiY3JlYXRlZEF0IjoiMjAyNC0wMy0wM1QwMjowNzozMy45NTRaIiwiaWF0IjoxNzA5NDMxNzg5LCJleHAiOjE3MDk0MzI5ODl9.aj26Tstl-Pox0ENhu3ieQtewbLqaHt0DzIJOIagjrSo
